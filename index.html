@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<script> 
+        function click1(){
+              
+ 
+ let s=0;
+let a=0;
+      let f1 = document.getElementsByName("field1");
+      let f2 = document.getElementsByName("field2");
+      let r = document.getElementById("result")
+      s= f1[0].value * f2[0].value;
+      
+      
+      window.addEventListener('DOMContentLoaded', function (event) {
+  let s = document.getElementsByName("myselect");
+  s[0].addEventListener("change", function(event) {
+    let select = event.target;
+    let radios = document.getElementById("myradios");
+    console.log(select.value);
+    a=s;
+    if (select.value == "3") {
+      radios.style.display = "none";
+      s=a+1000;
+    }
+    else {
+      radios.style.display = "block";
+    }
+  });
+  
+  let r = document.querySelectorAll(".myradios input[type=radio]");
+  r.forEach(function(radio) {
+    radio.addEventListener("change", function(event) {
+      let r = event.target;
+      console.log(r.value);
+    });    
+  });
+  
+});
+    alert(s);
+
+        }
+</script>
+</head>
+<body>
+<div class="one">
+    <header>
+        Вычисление цены товара
+    </header>
+    <form>
+    <select name="myselect">
+        <option value="1">one</option>
+        <option value="2">two</option>
+        <option value="3">three</option>
+        </select>
+        <div class="myradios" id="myradios" style="display:block">
+            <label><input type="radio" name="myradio" value="r1"></label>r1
+            <label><input type="radio" name="myradio" value="r2"></label>r2
+            <label><input type="radio" name="myradio" value="r3"></label>r3
+            </div>
+        </form>
+        <br>
+    <section>
+    <input name = "field1" type="text" required placeholder="Введите цену">
+    <input name = "field2" type="text" required placeholder="Введите количество">
+    <button id = "result" onclick="return click1()">вычислить</button>
+</section>
+    <div id="result"></div>
+</div>
+</body>
+
+
+</html>
